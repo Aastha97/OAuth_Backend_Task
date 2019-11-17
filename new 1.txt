@@ -1,0 +1,37 @@
+$(document).ready(function () {
+    var container = document.getElementById('hot');
+
+    var hot = new Handsontable(container,{
+        startRows: 1,
+        startCols: 4,
+        rowHeaders: true,
+        colHeaders: true,
+        stretchH: 'all',
+        minSpareRows: 0,
+        contextMenu: true
+    });
+
+
+function json2array(json){
+    var result = [];
+    var keys = Object.keys(json);
+    keys.forEach(function(key){
+        result.push(json[key]);
+    });
+    return result;
+}
+
+    function loadData() {
+        $.ajax({
+            url: 'get.php',
+            type: 'get',
+            dataType: 'json',
+            async: true,
+            success: function(res) {
+				alert(res);
+                hot.loadData(res);
+            }
+        });
+    }
+    loadData();
+});

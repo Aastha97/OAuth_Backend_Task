@@ -1,0 +1,7 @@
+{
+    "require": {
+        "league/oauth2-github": "^2.0",
+        "paragonie/random_compat": "<9.99",
+        "psr/log": "^1.1"
+    }
+}
